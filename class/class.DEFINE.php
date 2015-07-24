@@ -130,7 +130,7 @@ $arrayLog=array();
  $arrayField=array();
 
  $arrayHeader=array("utf8"=>"utf-8","refresh"=>"3600",
-                    "title"=>"Back-end Thiên Tùng Pro Lab",
+                    "title"=>"QUẢN LÝ KINH DOANH LẬP THỊNH",
                     "icon"=>"images/favicon.ico",
-                    "keywords"=>"Administrator","description"=>"Back-end Thiên Tùng Pro Lab","copyright"=>"Back-end Thiên Tùng Pro Lab");
+                    "keywords"=>"Administrator","description"=>"QUẢN LÝ KINH DOANH LẬP THỊNH","copyright"=>"QUẢN LÝ KINH DOANH LẬP THỊNH");
 ?>

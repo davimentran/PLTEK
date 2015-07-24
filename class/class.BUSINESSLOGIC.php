@@ -48,7 +48,7 @@ class BUSINESSLOGIC extends DBFUNCTION {
            </div>
            <div class='clear'></div>
            <div class='footer'>
-            <div class='left'>Copyright © " . date(Y) . " thientungprolab.com</div>
+            <div class='left'>Copyright © " . date(Y) . "</div>
              <div class='right'><a class='icon'  href='/" . ADMINISTRATOR_FOLDER . "'>Home Admin</a></div>
              <div class='clear'></div>
              <div>
@@ -3347,109 +3347,21 @@ Generate dynamic header of admin
       $ChangePermissionCombo = "[" . $_SESSION['user_login']['role_name'] . "]";
     }
     echo "<table width='100%' align='center'  border='0'  cellpadding='0'  cellspacing='0'>
+            <tr>
+             <tr>
+             <td  valign='top' class='header'>
+                    <table  width='100%' border='0' align='center' cellpadding='0' cellspacing='0'>
+                     <tr>
+                         <td width='100%' class='titleAdmin'><div class='h_logan'></div><div>Xin chào [ " . $_SESSION['user_login']['fullname'] . ",<a id='welcome' href='#' onclick=\"window.location='logout.php';\">Thoát</a> ] - Quyền truy cập [ " . $ChangePermissionCombo . " ]&nbsp;-&nbsp;<a id='welcome' href='./'>Trang chủ</a></div></td>
+                     </tr>
+                   </table>
+             </td>
+          </tr>";
 
-
-
-        			  	<tr><td id='topcenter'>
-
-
-
-        					<div id='topleft'></div>
-
-
-
-        					<div id='topright'></div>
-
-
-
-        				</td></tr>
-
-
-
-                        <tr>
-
-
-
-                            <td  valign='top' class='header'>
-
-
-
-                            <table  width='100%' border='0' align='center' cellpadding='0' cellspacing='0'>
-
-
-
-                              <tr>
-
-
-
-                          	  <td width='100%' class='titleAdmin'><div>Xin chào [ " . $_SESSION['user_login']['fullname'] . ",<a id='welcome' href='#' onclick=\"window.location='logout.php';\">Thoát</a> ] - Quyền truy cập [ " . $ChangePermissionCombo . " ]&nbsp;-&nbsp;<a id='welcome' href='./'>Trang chủ</a></div></td>
-
-
-
-                              </tr>
-
-
-
-                            </table>
-
-
-
-                           </td>
-
-
-
-                        </tr>";
-//echo "<div style='padding-left:10px;padding-bottom:5px;text-align:right !important'>Chào mừng[<b> ".$_SESSION['user_login']['fullname']." </b>] - Quyền truy cập  ".$ChangePermissionCombo." &nbsp;-&nbsp;<a id='welcome' href='#' onclick=\"window.location='logout.php';\"><b>Thoát hệ thống</b></a></div>";
     echo "<tr><td colspan='3' class='menu'>";
     echo $this->showMenu($page);
     echo "</td></tr>";
     echo "</table>";
-//echo "</table>";
-/*
-
-
-
-if($_SESSION["user_login"]["is_show_menu_left"])
-
-
-
-{
-
-
-
-echo "<div class='menuleft'>";
-
-
-
-echo $this->showMenu_left($page);
-
-
-
-echo"</div>";
-
-
-
-}
-
-
-
-else{
-
-
-
-$style="style='width:100%';";
-
-
-
-}
-
-
-
-
-
-
-
-*/
     echo "<div>";
   }
 /*
@@ -3845,37 +3757,27 @@ Paging on one table
 
 *******************************************************************/
   function paging($tablename, $where, $orderby, $url, $PageNo, $PageSize, $Pagenumber, $ModePaging) {
-
     if ($PageNo == "") {
       $StartRow = 0;
       $PageNo = 1;
     }
-    else
-    {
+    else {
       $StartRow = ($PageNo - 1) * $PageSize;
     }
-    if ($PageSize < 1 || $PageSize > 1000)
-    {
+    if ($PageSize < 1 || $PageSize > 1000) {
       $PageSize = 15;
     }
-    if ($PageNo % $Pagenumber == 0)
-    {
+    if ($PageNo % $Pagenumber == 0) {
       $CounterStart = $PageNo - ($Pagenumber - 1);
     }
-    else
-    {
+    else {
       $CounterStart = $PageNo - ($PageNo % $Pagenumber) + 1;
     }
-
-
     $CounterEnd = $CounterStart + $Pagenumber;
-
-    $sql = "SELECT COUNT(id) FROM ".$tablename." where ".$where;
+    $sql = "SELECT COUNT(id) FROM " . $tablename . " where " . $where;
     $result_c = $this->doSQL($sql);
     $row = mysql_fetch_array($result_c);
     $RecordCount = $row[0];
-
-
     $result = $this->getDynamic($tablename, $where, $orderby . " LIMIT " . $StartRow . "," . $PageSize);
     if ($RecordCount % $PageSize == 0)
       $MaxPage = $RecordCount / $PageSize;
@@ -4527,4 +4429,5 @@ Paging on one table
     $number = hexdec($number);
     return $number = $number - gmmktime(0, 0, 0, 10, 04, 1979);
   }
-}?>
+}
+?>
