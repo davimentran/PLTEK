@@ -22,9 +22,11 @@
  $showControl=(isset($_GET['edit']))?"display:''":"display:none";
  $hideControl=(isset($_GET['edit']))?"display:none":"display:''";
 
+ /*
  $URL_page=explode("/",$_SERVER["REQUEST_URI"]);
  array_shift($URL_page);
  $pageAdmin=strtolower($URL_page[1])."?";
+ */
 
 /* Status of url query string
 ************************************************************/
@@ -97,25 +99,7 @@
  define("deleteIMG","<a title='Delete' href='javascript:void(0);' onclick=\"return deleteCommon('?".QUERY_STRING."');\" ><img  src='".pathTheme."/images/b_delete.gif' border='0' title='Delete' /></a>");
  define("deleteText","<a title='Delete' id='lnkaction' href='javascript:void(0);' onclick=\"return deleteCommon('?".QUERY_STRING."');\">Xóa</a>");
 
- //define("duplicateIMG","<a href='javascript:void(0);' onclick=\"return duplicateCommon('?".QUERY_STRING."','arrayid');\" ><img  src='".pathTheme."/images/nhandoi.jpg' border='0' title='Nhân đôi' /></a>");
- //define("duplicateText","<a id='lnkaction' href='javascript:void(0);' onclick=\"return duplicateCommon('?".QUERY_STRING."','arrayid');\">Nhân đôi</a>");
-
- //define("viewIMG","<a href='?".QUERY_STRING."'><img  src='".pathTheme."/images/view.jpg' border='0' title='Xem' /></a>");
- //define("viewText","<a id='lnkaction' href='?".QUERY_STRING."'>Làm mới</a>");
-
- //define("backupIMG","<a href='#' onclick=\"openBox('backup.php','auto','400')\"><img  src='".pathTheme."/images/bakup.jpg' border='0' title='Sao lưu' /></a>");
- //define("bakupText","<a id='lnkaction' onclick=\"openBox('backup.php','auto','400')\" href='#'>Sao lưu</a>");
-
- //define("restoreIMG","<a href='#' onclick=\"openBox('restore.php','auto','200')\"><img  src='".pathTheme."/images/restore.jpg' border='0' title='Phục hồi' /></a>");
- //define("restoreText","<a id='lnkaction' onclick=\"openBox('restore.php','auto','200')\" href='#'>Phục hồi</a>");
-
- //define("truncateIMG","<a href='#' onclick=\"openBox('truncate.php?tbl={param}','auto','400')\"><img  src='".pathTheme."/images/b_delete.gif' border='0' title='Truncate bảng, xóa hết dữ liệu của bảng' /></a>");
- //define("truncateText","<a id='lnkaction' onclick=\"openBox('truncate.php?tbl={param}','auto','400')\" href='#'>Xóa bảng</a>");
-
-/* Define Enum array
-******************************************************************/
-
- $arrayType=array("footer"=>"Footer","keywords"=>"Keywords","title"=>"Title","address"=>"Address",
+$arrayType=array("footer"=>"Footer","keywords"=>"Keywords","title"=>"Title","address"=>"Address",
                 "description"=>"Description","copyright"=>"Copyright");
 
  $arrayExt=array(".sql");
